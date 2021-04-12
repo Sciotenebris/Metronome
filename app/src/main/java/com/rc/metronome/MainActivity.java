@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
     private int[] beepSound;
     private int[] setSound;
     private int[] blockSound;
-   // private int[] snareSound;
+    private int[] snareSound;
 
     private int counter;
     private int time_signature = 4;
-    private int MAX_TEMPO = 250, MIN_TEMPO = 30;
+    private int MAX_TEMPO = 220, MIN_TEMPO = 30;
 
     private boolean running, loadComplete;
     //endregion
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     .setAudioAttributes(audioAttributes)
                     .build();
         } else {
-            soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+            soundPool = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
         }
 
         beepSound = new int[2]; // I created with free synth software
@@ -74,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
         blockSound[0] = soundPool.load(this, R.raw.block_acc, 1);
         blockSound[1] = soundPool.load(this, R.raw.block_2, 1);
 
-    //    snareSound = new int[2]; // Royalty free from bigsoundbank.com
-    //    snareSound[0] = soundPool.load(this, R.raw.snare_acc, 1);
-    //    snareSound[1] = soundPool.load(this, R.raw.snare1, 1);
+        snareSound = new int[2]; // Royalty free from bigsoundbank.com
+        snareSound[0] = soundPool.load(this, R.raw.snare_acc, 1);
+        snareSound[1] = soundPool.load(this, R.raw.snare1, 1);
 
         setSound = new int[2];
         setSound = blockSound;
@@ -219,11 +219,11 @@ public class MainActivity extends AppCompatActivity {
                     setSound = blockSound;
                 }
                 break;
-      //      case R.id.rb_snare:
-      //          if (checked) {
-      //              setSound = snareSound;
-      //          }
-      //          break;
+            case R.id.rb_snare:
+                if (checked) {
+                    setSound = snareSound;
+                }
+                break;
         }
     }
 
@@ -354,6 +354,7 @@ public class MainActivity extends AppCompatActivity {
                         case 5:
                             if (counter == 1) {
                                 soundPool.play(setSound[0], 1, 1, 0, 0, 1);
+System.out.println(bpMillis);
                             } else if (counter == 2 || counter == 3 || counter == 4) {
                                 soundPool.play(setSound[1], 1, 1, 0, 0, 1);
                             } else if (counter == 5) {

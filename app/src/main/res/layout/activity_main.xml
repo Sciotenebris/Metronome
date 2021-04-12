@@ -118,7 +118,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible">
+        tools:visibility="invisible">
 
         <TextView
             android:id="@+id/Settings"
@@ -185,14 +185,14 @@
                     android:layout_height="0dp"
                     android:layout_weight="1" />
 
-              <!--  <RadioButton
+                <RadioButton
                     android:id="@+id/rb_snare"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/snare"
                     android:onClick="SoundRadioButtonClick"
-                    android:textSize="18sp"/>-->
+                    android:text="@string/snare"
+                    android:textSize="18sp" />
 
             </RadioGroup>
 
