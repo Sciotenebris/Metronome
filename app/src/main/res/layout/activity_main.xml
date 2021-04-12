@@ -179,21 +179,6 @@
                     android:onClick="SoundRadioButtonClick"
                     android:text="@string/block"
                     android:textSize="18sp" />
-
-                <Space
-                    android:layout_width="15dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <RadioButton
-                    android:id="@+id/rb_snare"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="SoundRadioButtonClick"
-                    android:text="@string/snare"
-                    android:textSize="18sp" />
-
             </RadioGroup>
 
             <Space

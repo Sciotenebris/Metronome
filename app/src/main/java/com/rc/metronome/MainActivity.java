@@ -34,13 +34,12 @@ public class MainActivity extends AppCompatActivity {
     private int[] beepSound;
     private int[] setSound;
     private int[] blockSound;
-    private int[] snareSound;
 
     private int counter;
     private int time_signature = 4;
     private int MAX_TEMPO = 220, MIN_TEMPO = 30;
 
-    private boolean running, loadComplete;
+    private boolean running;
     //endregion
 
     @Override
@@ -73,10 +72,6 @@ public class MainActivity extends AppCompatActivity {
         blockSound = new int[2]; // Royalty free from bigsoundbank.com
         blockSound[0] = soundPool.load(this, R.raw.block_acc, 1);
         blockSound[1] = soundPool.load(this, R.raw.block_2, 1);
-
-        snareSound = new int[2]; // Royalty free from bigsoundbank.com
-        snareSound[0] = soundPool.load(this, R.raw.snare_acc, 1);
-        snareSound[1] = soundPool.load(this, R.raw.snare1, 1);
 
         setSound = new int[2];
         setSound = blockSound;
@@ -219,11 +214,6 @@ public class MainActivity extends AppCompatActivity {
                     setSound = blockSound;
                 }
                 break;
-            case R.id.rb_snare:
-                if (checked) {
-                    setSound = snareSound;
-                }
-                break;
         }
     }
 
@@ -349,43 +339,17 @@ public class MainActivity extends AppCompatActivity {
 
                     counter++;
 
-                    switch (time_signature) {
-
-                        case 5:
-                            if (counter == 1) {
-                                soundPool.play(setSound[0], 1, 1, 0, 0, 1);
-System.out.println(bpMillis);
-                            } else if (counter == 2 || counter == 3 || counter == 4) {
-                                soundPool.play(setSound[1], 1, 1, 0, 0, 1);
-                            } else if (counter == 5) {
-                                soundPool.play(setSound[1], 1, 1, 0, 0, 1);
-                                counter = 0;
-                            }
-                            break;
-                        case 1:
+                    if (time_signature != 1) {
+                        if (counter == 1) {
+                            soundPool.play(setSound[0], 1, 1, 0, 0, 1);
+                        } else {
                             soundPool.play(setSound[1], 1, 1, 0, 0, 1);
+                        }
+                        if (counter == time_signature) {
                             counter = 0;
-                            break;
-                        case 3:
-                            if (counter == 1) {
-                                soundPool.play(setSound[0], 1, 1, 0, 0, 1);
-                            } else if (counter == 2) {
-                                soundPool.play(setSound[1], 1, 1, 0, 0, 1);
-                            } else if (counter == 3) {
-                                soundPool.play(setSound[1], 1, 1, 0, 0, 1);
-                                counter = 0;
-                            }
-                            break;
-                        case 4:
-                            if (counter == 1) {
-                                soundPool.play(setSound[0], 1, 1, 0, 0, 1);
-                            } else if (counter == 2 || counter == 3) {
-                                soundPool.play(setSound[1], 1, 1, 0, 0, 1);
-                            } else if (counter == 4) {
-                                soundPool.play(setSound[1], 1, 1, 0, 0, 1);
-                                counter = 0;
-                            }
-                            break;
+                        }
+                    } else {
+                        soundPool.play(setSound[1], 1, 1, 0, 0, 1);
                     }
                 }
             }
