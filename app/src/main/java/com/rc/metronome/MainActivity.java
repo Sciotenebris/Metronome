@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private int[] beepSound;
     private int[] setSound;
     private int[] blockSound;
-    private int[] snareSound;
+   // private int[] snareSound;
 
     private int counter;
     private int time_signature = 4;
@@ -71,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
         beepSound[1] = soundPool.load(this, R.raw.beep_standard, 1);
 
         blockSound = new int[2]; // Royalty free from bigsoundbank.com
-        blockSound[0] = soundPool.load(this, R.raw.block_1, 1);
+        blockSound[0] = soundPool.load(this, R.raw.block_acc, 1);
         blockSound[1] = soundPool.load(this, R.raw.block_2, 1);
 
-        snareSound = new int[2]; // Royalty free from bigsoundbank.com
-        snareSound[0] = soundPool.load(this, R.raw.snare_acc, 1);
-        snareSound[1] = soundPool.load(this, R.raw.snare1, 1);
+    //    snareSound = new int[2]; // Royalty free from bigsoundbank.com
+    //    snareSound[0] = soundPool.load(this, R.raw.snare_acc, 1);
+    //    snareSound[1] = soundPool.load(this, R.raw.snare1, 1);
 
         setSound = new int[2];
         setSound = blockSound;
@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         //endregion
 
         counter = 0;
+
         //region ClickListeners
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -218,11 +219,11 @@ public class MainActivity extends AppCompatActivity {
                     setSound = blockSound;
                 }
                 break;
-            case R.id.rb_snare:
-                if (checked) {
-                    setSound = snareSound;
-                }
-                break;
+      //      case R.id.rb_snare:
+      //          if (checked) {
+      //              setSound = snareSound;
+      //          }
+      //          break;
         }
     }
 
