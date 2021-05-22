@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/MainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TableRow
+            android:id="@+id/TempoRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/DecreaseButton"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+
+                android:text="@string/decrease_button"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/Tempo_ET"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints="@string/auto_hint"
+                android:background="@null"
+                android:inputType="number"
+                android:labelFor="@id/Tempo_ET"
+                android:maxLength="3"
+                android:text="@string/tempo_display"
+                android:textAlignment="center"
+                android:textSize="40sp" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/BPM_TV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/bpm_display"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/IncreaseButton"
+
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:text="@string/increase_button"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <Button
+            android:id="@+id/PlayButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:text="@string/start_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".75" />
+
+        <ImageButton
+            android:id="@+id/SettingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight=".25"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:contentDescription="@string/settings_button"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/settings" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/SettingsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible">
+
+        <TextView
+            android:id="@+id/Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="15dp"
+            android:text="@string/settings_title"
+            android:textSize="36sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".75" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Sound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/beat_sound"
+                android:textSize="26sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <RadioGroup
+                android:id="@+id/BeatSoundGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_beep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="SoundRadioButtonClick"
+                    android:text="@string/beep"
+                    android:textSize="18sp" />
+
+                <Space
+                    android:layout_width="15dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:id="@+id/rb_block"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="SoundRadioButtonClick"
+                    android:text="@string/block"
+                    android:textSize="18sp" />
+            </RadioGroup>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <TextView
+                android:id="@+id/TimeSignature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/time_signature"
+                android:textSize="26sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <RadioGroup
+                android:id="@+id/TimeSigGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="TimeSigRadioButtonClick"
+                    android:text="@string/_1"
+                    android:textSize="18sp" />
+
+                <Space
+                    android:layout_width="15dp"
+                    android:layout_height="0dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_three_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="TimeSigRadioButtonClick"
+                    android:text="@string/_3_4"
+                    android:textSize="18sp" />
+
+                <Space
+                    android:layout_width="15dp"
+                    android:layout_height="0dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_four_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="TimeSigRadioButtonClick"
+                    android:text="@string/_4_4"
+                    android:textSize="18sp" />
+
+                <Space
+                    android:layout_width="15dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:id="@+id/rb_five_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="TimeSigRadioButtonClick"
+                    android:text="@string/_5_4"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/BackButtton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
