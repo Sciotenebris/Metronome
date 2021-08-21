@@ -1,15 +1,16 @@
 <application>
-  <component name="FileTypeManager" version="17">
+  <component name="FileTypeManager" version="18">
     <extensionMap>
-      <mapping ext="webp" type="Image" />
       <mapping ext="gradle.kts" type="Kotlin" />
       <mapping ext="main.kts" type="Kotlin" />
-      <mapping pattern="list_item_box.xml" type="PLAIN_TEXT" />
-      <mapping pattern="list_places" type="PLAIN_TEXT" />
       <mapping pattern="last_names" type="PLAIN_TEXT" />
-      <mapping pattern="rj" type="PLAIN_TEXT" />
       <mapping pattern="first_names" type="PLAIN_TEXT" />
+      <mapping pattern="list_item_box.xml" type="PLAIN_TEXT" />
+      <mapping pattern="rj" type="PLAIN_TEXT" />
       <mapping pattern="references" type="PLAIN_TEXT" />
+      <mapping pattern="list_places" type="PLAIN_TEXT" />
+      <removed_mapping ext="apk" approved="true" type="ARCHIVE" />
+      <removed_mapping ext="psd" approved="true" type="Image" />
     </extensionMap>
   </component>
 </application>
