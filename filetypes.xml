@@ -3,12 +3,12 @@
     <extensionMap>
       <mapping ext="gradle.kts" type="Kotlin" />
       <mapping ext="main.kts" type="Kotlin" />
-      <mapping pattern="last_names" type="PLAIN_TEXT" />
-      <mapping pattern="first_names" type="PLAIN_TEXT" />
-      <mapping pattern="list_item_box.xml" type="PLAIN_TEXT" />
-      <mapping pattern="rj" type="PLAIN_TEXT" />
-      <mapping pattern="references" type="PLAIN_TEXT" />
       <mapping pattern="list_places" type="PLAIN_TEXT" />
+      <mapping pattern="last_names" type="PLAIN_TEXT" />
+      <mapping pattern="references" type="PLAIN_TEXT" />
+      <mapping pattern="first_names" type="PLAIN_TEXT" />
+      <mapping pattern="rj" type="PLAIN_TEXT" />
+      <mapping pattern="list_item_box.xml" type="PLAIN_TEXT" />
       <removed_mapping ext="apk" approved="true" type="ARCHIVE" />
       <removed_mapping ext="psd" approved="true" type="Image" />
     </extensionMap>
